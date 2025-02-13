@@ -128,11 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (box.classList.contains("expanded")) {
       box.classList.remove("expanded");
       window.scrollTo(0, lastScrollPosition);
-      buttonImg.src = "assets/arrow_down.svg";
+      buttonImg.src = "./assets/arrow_down.svg";
     } else {
       lastScrollPosition = window.scrollY;
       box.classList.add("expanded");
-      buttonImg.src = "assets/arrow_up.svg";
+      buttonImg.src = "./assets/arrow_up.svg";
     }
   }
 
