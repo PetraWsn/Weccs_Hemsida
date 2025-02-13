@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weccs - Digitalbyrå / Webbyrå Stockholm</title>
+
+    <link rel="stylesheet" type="text/css" href="css/mainTablet.css" />
+    <link rel="stylesheet" type="text/css" href="css/mainLaptop.css" />
+    <script src="JS/main1.js"></script>
+  </head>
+  <body>
+    <div id="start">
+      <img
+        src="assets/WECCS_logga.svg"
+        alt="Weccs webbyrå Stockholm logotype"
+        id="logotypeStart"
+      />
+      <img
+        src="assets/WECCS_text.svg"
+        alt="Weccs webbyrå Stockholm logotype"
+        id="logotypeTextStart"
+      />
+    </div>
+
+    <nav id="navigation">
+      <div id="containerLogotype">
+        <a href="index.html" id="homeButton">
+          <img
+            src="assets/WECCS_logga.svg"
+            alt="Weccs webbyrå Stockholm logotype"
+            id="logotypeTop"
+          />
+        </a>
+        <h1 id="rubrik">Digitalbyrå / Webbyrå Stockholm</h1>
+      </div>
+      <div id="containerLinks">
+        <a href="contact.html" id="contactBotton">Kontakta mig</a>
+        <div id="containerMenu">
+          <p id="menyText">Meny</p>
+          <svg id="menyPlus" width="25" height="25">
+            <!-- Horisontell linje -->
+            <rect id="rect1" x="0" y="11" width="25" height="3" />
+            <!-- Vertikal linje -->
+            <rect id="rect2" x="11" y="0" width="3" height="25" />
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <div id="menuScreen">
+      <ul>
+        <li><a href="portfolio.html" class="menuLink">Portfolio</a></li>
+        <li><a href="services.html" class="menuLink">Tjänster</a></li>
+        <li><a href="about.htlm" class="menuLink">Om mig</a></li>
+      </ul>
+      <div class="menuScreenLinksContainer">
+        <div class="menuScreenLinks">
+          <img src="assets/ikon_instagram.png" alt="Logo Instagram" />
+          <a href="https://www.instagram.se">Instagram</a>
+        </div>
+        <br />
+        <div class="menuScreenLinks">
+          <img src="assets/ikon_linkedin.png" alt="Logo LinkedIn" />
+          <a href="https://www.se.linkedin.com">Linked In</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content" id="contentStart">
+      <div id="videoContainer">
+        <video
+          id="backgroundVideo"
+          src="https://videos.pexels.com/video-files/3968073/3968073-hd_1920_1080_24fps.mp4"
+          autoplay
+          muted
+          loop
+          preload="auto"
+          type="video/mp4"
+        ></video>
+
+        <div id="gradientOverlay"></div>
+        <div id="containerText">
+          <div id="motto">Show & Grow!</div>
+          <h2 id="underrubrik">Levererar hemsidor som säljer åt dig</h2>
+          <div id="linkContainer">
+            <a href="portfolio.html" class="linkHome"
+              ><img
+                src="assets/ikon_portfolio.svg"
+                alt="ikon portfolio"
+              />Portfolio</a
+            >
+            <a href="services.html" class="linkHome"
+              ><img
+                src="assets/ikon_services.svg"
+                alt="ikon services"
+              />Tjänster</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div id="infoContainer">
+        <div id="firstInfo">
+          <div id="grid1">
+            <h3>Webbyrån med heltäckande service</h3>
+            <p>
+              Weccs Webbyrå erbjuder allt från nyskapande webbdesign och
+              e-handelslösningar till effektiv marknadsföring och
+              sökmotoroptimering - vi har verktygen och expertisen för att
+              skapa, förbättra och optimera din digitala närvaro. Hos oss får du
+              allt under ett och samma tak. Välkommen till Weccs Webbyrå!
+            </p>
+            <div>
+              <a href="contact.html" class="infoLink"
+                ><img src="assets/ikon_contact.svg" alt="ikon mail" />Kontakta
+                mig</a
+              >
+              <a href="services.html" class="infoLink"
+                ><img src="assets/ikon_services.svg" alt="ikon tjänster" />Mina
+                tjänster</a
+              >
+            </div>
+          </div>
+          <div id="grid2">
+            <div class="headerService">
+              <img src="assets/ikon_Design.svg" alt="ikon Design" />
+              <h4>Branding, UX & UI-design</h4>
+            </div>
+            <p>Hjälper er att kommunicera ert varumärke med stil</p>
+          </div>
+          <div id="grid3">
+            <div class="headerService">
+              <img
+                src="assets/ikon_programmering.svg"
+                alt="ikon Programmering"
+              />
+              <h4>Backend- och frontendutveckling</h4>
+            </div>
+            <p>
+              Bygger tekniskt SEO-optimerade hemsidor och stabila
+              e-handelslösningar
+            </p>
+          </div>
+          <div id="grid4">
+            <div class="headerService">
+              <img src="assets/ikon_SEO.svg" alt="Ikon SEO" />
+              <h4>SEO Analys</h4>
+            </div>
+            <p>
+              Tar era affärer till nya höjder med hjälp av SEO för ökad
+              konvertering
+            </p>
+          </div>
+        </div>
+        <div id="scrollLock">
+          <div id="sticky">
+            <h3 class="headerCase">Från Portfolion</h3>
+            <img src="assets/sticky_scroll.svg" alt="" id="imgLock" />
+          </div>
+
+          <div id="secondInfo">
+            <div class="case">
+              <img src="assets/bild.jpg" alt="Case Bild" />
+              <div class="scrollText">
+                <h3>RUBRIK</h3>
+                <p>Text INFO</p>
+              </div>
+            </div>
+            <div class="case">
+              <img src="assets/bild.jpg" alt="Case Bild" />
+              <div class="scrollText">
+                <h3>RUBRIK</h3>
+                <p>Text INFO</p>
+              </div>
+            </div>
+            <div class="case">
+              <img src="assets/bild.jpg" alt="Case Bild" />
+              <div class="scrollText">
+                <h3>RUBRIK</h3>
+                <p>Text INFO</p>
+              </div>
+            </div>
+            <div class="case">
+              <img src="assets/bild.jpg" alt="Case Bild" />
+              <div class="scrollText">
+                <h3>RUBRIK</h3>
+                <p>Text INFO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img id="footerImg" src="assets/WECCS_logga.svg" alt="" />
+      </div>
+
+      <footer>
+        <div class="border"></div>
+        <div id="footerContainer">
+          <div id="footerText">
+            <h5>Weccs Webbyrå Stockholm</h5>
+            <img src="assets/ikon_contact.svg" alt="" />
+            <a href="mailto:petra.wessen@hotmail.com">info@weccs.se</a>
+            <br />
+            <p>Fridhemsgatan 34, 112 40, Stockholm</p>
+          </div>
+          <div id="footerLink">
+            <a href="https://www.instagram.se">Instagram</a>
+            <img src="assets/ikon_instagram.png" alt="Logo Instagram" />
+            <br />
+            <a href="https://www.se.linkedin.com">Linked In</a
+            ><img src="assets/ikon_linkedin.png" alt="Logo LinkedIn" />
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
