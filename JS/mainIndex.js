@@ -193,3 +193,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Definiera media queryn
+const mediaQuery = window.matchMedia("(max-width: 1050px)");
+
+// Funktion för att byta ut bilden beroende på media query
+function changeImageBasedOnMediaQuery(e) {
+  const image = document.getElementById("imgLock");
+
+  if (e.matches) {
+    // Om skärmen är mindre än 768px, använd mobilbilden
+    image.src = "./assets/sticky_scrollTablet.svg";
+  } else {
+    // Om skärmen är större än 768px, använd storbilden
+    image.src = "./assets/sticky_scroll.svg";
+  }
+}
+
+// Lägg till eventlyssnare för att lyssna på förändringar i media query
+mediaQuery.addListener(changeImageBasedOnMediaQuery);
+
+// Anropa funktionen vid första laddning för att sätta rätt bild
+changeImageBasedOnMediaQuery(mediaQuery);

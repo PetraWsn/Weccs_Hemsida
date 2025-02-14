@@ -1,4 +1,4 @@
-@media only screen and (min-width: 800px) and (max-width: 1249px) {
+@media only screen and (min-width: 767px) and (max-width: 1049px) {
   :root {
     --background-color: rgb(39, 36, 47); /* Primärfärg bakgrund 39, 36, 47 */
     --background-color2: rgb(218, 93, 93);
@@ -10,7 +10,7 @@
   body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    width: 100%;
     cursor: default; /* Säkerställer att muspekaren inte ändras till textmarkör */
     user-select: none; /* Förhindrar att texten markeras  */
     overflow: hidden; /* Hindrar skrollning av sidan */
@@ -332,7 +332,7 @@
     flex-direction: column;
     position: absolute;
     top: 40%;
-    left: 10%;
+    left: 13%;
     width: 70%;
     height: 50%;
   }
@@ -411,28 +411,29 @@
     position: relative;
     top: 0px;
     left: 0px;
-    height: 90%;
     width: 100%;
     background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 70px;
   }
 
   #firstInfo {
-    height: 100vh;
-    width: 80%;
+    width: 70%;
     margin-top: 0%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Skapar 6 kolumner */
-    grid-template-rows: repeat(5, 1fr); /* Skapar 5 rader */
+    grid-template-columns: repeat(3, 1fr); /* Skapar 6 kolumner */
+    grid-template-rows: repeat(6, 1fr); /* Skapar 5 rader */
     grid-template-areas:
-      " . . . . . ."
-      "grid1 grid1 grid1 . grid2 grid2"
-      "grid1 grid1 grid1 . grid3 grid3"
-      "grid1 grid1 grid1 . grid4 grid4"
-      " . . . . . .";
-    grid-column-gap: 0px;
+      "grid1 grid1 grid1"
+      "grid1 grid1 grid1"
+      "grid1 grid1 grid1"
+      "grid2 grid2 grid2"
+      "grid3 grid3 grid3"
+      "grid4 grid4 grid4";
+    grid-row-gap: 20px;
+    padding-bottom: 0px;
   }
 
   #grid1 {
@@ -581,22 +582,20 @@
     position: sticky;
     top: 0px;
     left: 0px;
+    display: flex;
+    justify-content: center;
   }
 
   #imgLock {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
   }
 
   .headerCase {
-    writing-mode: vertical-rl; /* För att skriva text vertikalt från höger till vänster */
-    transform: rotate(180deg); /* Om du vill rotera texten med 90 grader */
-    white-space: nowrap;
     z-index: 20;
     position: absolute;
-    top: 25%;
-    left: 13%;
+    top: 100px;
   }
 
   #secondInfo {
@@ -607,20 +606,13 @@
     padding-top: 93px;
   }
 
-  .case {
-    height: 75vh;
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  }
-
-  .case img {
+  #caseImgLock {
     width: 30%;
     height: auto;
-    rotate: 90%;
-    margin-right: 20px;
-    margin-left: 10%;
+    position: absolute;
+    left: 17%;
+    border-radius: 20px;
+    align-self: center;
   }
 
   #footerImg {
@@ -982,7 +974,7 @@
   }
 
   .serviceContainer:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     filter: brightness(1.1);
     cursor: pointer;
   }

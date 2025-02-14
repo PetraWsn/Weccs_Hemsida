@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       // Toggla 'expanded' på den klickade containern
       container.classList.toggle("expanded");
+      document.getElementById("h1Service").scrollIntoView();
     });
   });
 });
