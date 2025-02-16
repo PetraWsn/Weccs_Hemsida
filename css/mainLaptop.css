@@ -4,7 +4,7 @@
     --background-color2: rgb(218, 93, 93);
     --primary-text-color: rgb(235, 235, 235); /* Primär Textfärg */
     --secondary-text-color1: rgb(255, 242, 97); /* Hover-länkar */
-    --secondary-text-color2: rgb(253, 238, 166);
+    --secondary-text-color2: rgb(255, 245, 196);
   }
 
   body {
@@ -15,8 +15,11 @@
     user-select: none; /* Förhindrar att texten markeras  */
     overflow: hidden; /* Hindrar skrollning av sidan */
     background-color: var(--background-color);
+  }
 
-    /* pointer-events: none;  Förhindrar alla användarinteraktioner, inklusive att få fokus */
+  #wrapper {
+    width: 100%;
+    max-width: 1600px;
   }
 
   /* START - ANIMERING */
@@ -531,6 +534,8 @@
 
   .infoLink {
     position: relative;
+    display: flex;
+    align-items: center;
     top: 0px;
     left: 0px;
     width: 130px;
@@ -572,61 +577,87 @@
   }
 
   #scrollLock {
-    height: 295vh; /* Ta upp hela skärmen */
     width: 100%;
+    height: 274vh;
     position: relative;
     background-color: rgb(255, 109, 109);
+    transition: background-color 1s ease;
   }
 
   #sticky {
     width: 100%;
     height: 100vh;
-    z-index: 10;
     position: sticky;
     top: 0px;
     left: 0px;
     display: flex;
+    z-index: 1;
+    background-image: url("../assets/sticky_scroll.svg");
+    background-size: cover;
+    background-position: center center; /* Centrerar bilden i containern */
+    background-repeat: no-repeat;
   }
 
   #imgLock {
     width: 100%;
     height: 100vh;
     object-fit: cover;
+    object-position: center center;
+    z-index: 10;
+    opacity: 0.5;
+    display: none;
   }
 
   .headerCase {
     writing-mode: vertical-rl; /* För att skriva text vertikalt från höger till vänster */
-    transform: rotate(180deg); /* Om du vill rotera texten med 90 grader */
     white-space: nowrap;
     z-index: 20;
     position: absolute;
-    top: 25%;
-    left: 13%;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) translate(-35vw, 0%) rotate(180deg);
   }
 
-  #caseImgLock {
+  #caseImgLock,
+  #nextImgLock {
     width: 30%;
+    max-width: 400px;
+    min-width: 345px;
     height: auto;
     position: absolute;
-    left: 23%;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
     border-radius: 15px;
-    align-self: center;
+    transform: translate(-50%, -50%) translate(-12vw, 0px);
+    transition: opacity 0.5s ease-in;
+  }
+
+  #nextImgLock {
+    opacity: 0;
+    z-index: 6; /* Se till att den nya bilden är ovanpå */
+  }
+
+  .mobileImg {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    display: none;
   }
 
   #secondInfo {
     width: 73%;
-    height: 253vh;
+    height: 234vh;
     position: absolute;
-    top: 0px;
+    top: 36vh;
     left: 19%;
-    padding-top: 32vh;
-    background-color: rgb(31, 80, 80);
   }
 
   .scrollText {
-    height: 65vh;
+    height: 58vh;
     padding-left: 50%;
-    padding-right: 10%;
+    padding-right: 7%;
   }
 
   .scrollText h3 {
@@ -748,8 +779,21 @@
   /*   PORTFOLIO SIDA INNEHÅLL */
 
   #contentPortfolio {
+    width: 100%;
     background-color: var(--background-color);
-    height: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #infoContainerP {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
   }
 
   .headerPortfolio {
@@ -770,6 +814,7 @@
   }
 
   .portfolioCaseLeft {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -777,7 +822,24 @@
     margin-top: 60px;
   }
 
+  .portfolioCaseLeft > .caseBoxL:nth-of-type(1) {
+    background-color: rgb(227, 160, 25);
+  }
+
+  .portfolioCaseLeft > .caseBoxL:nth-of-type(2) {
+    background-color: rgb(92, 31, 215);
+  }
+
+  .portfolioCaseRight > .caseBoxR:nth-of-type(1) {
+    background-color: rgb(255, 79, 97);
+  }
+
+  .portfolioCaseRight > .caseBoxR:nth-of-type(2) {
+    background-color: lightcoral;
+  }
+
   .portfolioCaseRight {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -801,17 +863,18 @@
   }
 
   .caseBoxL {
-    background-color: var(--background-color2);
-    border-radius: 20px;
+    border-radius: 15px;
     max-height: 500px;
     width: 70%;
+    max-width: 1000px;
     margin-left: 3%;
     position: relative;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: max-height 1s ease-in;
+    transition: max-height 1s ease-in clip-path 0.5s ease;
+    box-sizing: border-box;
+    padding: 10px 50px 10px 50px;
   }
 
   .caseBoxL.expanded {
@@ -819,17 +882,18 @@
   }
 
   .caseBoxR {
-    background-color: var(--background-color2);
-    border-radius: 20px;
+    border-radius: 15px;
     max-height: 500px;
     width: 70%;
+    max-width: 1000px;
     margin-right: 3%;
     position: relative;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: max-height 1s ease-in;
+    box-sizing: border-box;
+    padding: 10px 50px 10px 50px;
   }
 
   .caseBoxR.expanded {
@@ -872,35 +936,33 @@
     width: 20px;
   }
 
-  .caseBoxContentL {
+  .caseBoxContent {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     overflow: hidden;
+    align-self: flex-start;
     max-height: 90%;
   }
 
-  .caseBoxContentR {
-    position: relative;
+  .ServiceColumnL {
+    width: 100%;
+    display: flex;
+  }
+
+  .ServiceColumnR {
+    width: 100%;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    max-height: 90%;
-  }
-  .caseBoxTextContent {
-    width: 60%;
-    align-self: flex-start;
   }
 
   .caseBoxImg {
-    width: 30%;
-    height: auto; /* Bibehåller proportionerna */
-    object-fit: contain; /* Gör att bilden behåller sina proportioner och inte sträcks */
-    max-height: 100%; /* Se till att bilden inte överskrider förälderns höjd */
-    border-radius: 10px;
+    width: 40%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    padding: 20px;
   }
 
   .CaseService {
@@ -909,6 +971,7 @@
     font-weight: bold;
     color: var(--secondary-text-color2);
     padding: 20px;
+    margin: 5px;
   }
 
   .caseText {
@@ -917,6 +980,8 @@
     font-weight: lighter;
     color: var(--primary-text-color);
     padding: 20px;
+    flex: 1;
+    margin: 0px;
   }
 
   /* TJÄNSTER SIDA INNEHÅLL */
@@ -949,7 +1014,7 @@
     margin-bottom: 50px;
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
   }
@@ -972,7 +1037,7 @@
     height: 550px;
     min-height: 550px;
     flex: 1 1 30%;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-bottom: 80px;
     transition: transform 0.3s ease, filter 0.3s ease, width 0.5s ease;
     order: 1;
@@ -1031,6 +1096,18 @@
   .serviceColumn img {
     width: 90%;
     border-radius: 10px;
+  }
+
+  .expandButton {
+    display: none;
+    width: 100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease-in, filter 0.3s ease-in;
   }
 
   /* CONTACT SIDA INNEHÅLL */

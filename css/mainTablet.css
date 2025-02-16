@@ -19,6 +19,12 @@
     /* pointer-events: none;  Förhindrar alla användarinteraktioner, inklusive att få fokus */
   }
 
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
   /* START - ANIMERING */
 
   #start {
@@ -433,7 +439,7 @@
       "grid3 grid3 grid3"
       "grid4 grid4 grid4";
     grid-row-gap: 20px;
-    padding-bottom: 0px;
+    padding-bottom: 50px;
   }
 
   #grid1 {
@@ -528,6 +534,8 @@
 
   .infoLink {
     position: relative;
+    display: flex;
+    align-items: center;
     top: 0px;
     left: 0px;
     width: 130px;
@@ -569,7 +577,7 @@
   }
 
   #scrollLock {
-    height: 325vh; /* Ta upp hela skärmen */
+    height: 295vh; /* Ta upp hela skärmen */
     width: 100%;
     position: relative;
     background-color: rgb(255, 109, 109);
@@ -578,41 +586,78 @@
   #sticky {
     width: 100%;
     height: 100vh;
-    z-index: 10;
     position: sticky;
     top: 0px;
     left: 0px;
     display: flex;
     justify-content: center;
+    z-index: 1;
+    background-image: url("./assets/sticky_scrollTabletLandscape.svg");
+    background-size: cover;
+    background-position: center center; /* Centrerar bilden i containern */
+    background-repeat: no-repeat;
   }
 
   #imgLock {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
+    z-index: 10;
+    display: none;
   }
 
   .headerCase {
+    white-space: nowrap;
     z-index: 20;
     position: absolute;
-    top: 100px;
-  }
-
-  #secondInfo {
-    width: 73%;
-    position: absolute;
-    top: 0px;
-    left: 19%;
-    padding-top: 93px;
+    top: 15%;
   }
 
   #caseImgLock {
     width: 30%;
+    min-width: 300px;
     height: auto;
     position: absolute;
-    left: 17%;
-    border-radius: 20px;
-    align-self: center;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    transform: translate(-50%, -50%) translate(-190px, 50px);
+  }
+
+  .mobileImg {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  #secondInfo {
+    width: 82%;
+    height: 253vh;
+    position: absolute;
+    top: 0px;
+    left: 9%;
+    padding-top: 38vh;
+  }
+
+  .scrollText {
+    height: 65vh;
+    padding-left: 50%;
+    padding-right: 10%;
+  }
+
+  .scrollText h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+  }
+
+  .scrollText a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: var(--primary-text-color);
+    /* z-index: 30; */
+    position: relative;
+    text-decoration: none;
   }
 
   #footerImg {
@@ -722,6 +767,7 @@
   #contentPortfolio {
     background-color: var(--background-color);
     height: 110%;
+    padding-bottom: 80px;
   }
 
   .headerPortfolio {
@@ -744,6 +790,7 @@
   .portfolioCaseLeft {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 60px;
@@ -752,32 +799,30 @@
   .portfolioCaseRight {
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 60px;
   }
 
   .headerCaseLeft {
-    writing-mode: vertical-rl; /* För att skriva text vertikalt från höger till vänster */
-    transform: rotate(180deg); /* Om du vill rotera texten med 90 grader */
     white-space: nowrap;
     color: var(--primary-text-color);
+    font-size: 2.5rem;
   }
 
   .headerCaseRight {
-    writing-mode: vertical-rl; /* För att skriva text vertikalt från höger till vänster */
-    transform: rotate(360deg); /* Om du vill rotera texten med 90 grader */
     white-space: nowrap;
     color: var(--primary-text-color);
+    font-size: 2.5rem;
   }
 
   .caseBoxL {
     background-color: var(--background-color2);
-    border-radius: 20px;
+    border-radius: 15px;
     max-height: 500px;
-    width: 70%;
-    margin-left: 3%;
+    width: 80%;
+    margin-top: 3%;
     position: relative;
     margin-bottom: 60px;
     display: flex;
@@ -792,10 +837,10 @@
 
   .caseBoxR {
     background-color: var(--background-color2);
-    border-radius: 20px;
+    border-radius: 15px;
     max-height: 500px;
-    width: 70%;
-    margin-right: 3%;
+    width: 80%;
+    margin-top: 3%;
     position: relative;
     margin-bottom: 60px;
     display: flex;
@@ -924,6 +969,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
+    padding-bottom: 10%;
   }
 
   main .serviceContainer:nth-child(1) {
@@ -944,9 +990,9 @@
     height: 550px;
     min-height: 550px;
     flex: 1 1 30%;
-    border-radius: 20px;
-    margin-bottom: 80px;
+    border-radius: 15px;
     transition: transform 0.3s ease, filter 0.3s ease, width 0.5s ease;
+    margin-bottom: 40px;
   }
 
   .serviceContainer.expanded {
@@ -971,12 +1017,6 @@
 
   .serviceContainer.expanded .serviceColumn {
     padding: 20px;
-  }
-
-  .serviceContainer:hover {
-    transform: scale(1.02);
-    filter: brightness(1.1);
-    cursor: pointer;
   }
 
   .serviceInfo {
@@ -1006,6 +1046,26 @@
   .serviceColumn img {
     width: 90%;
     border-radius: 10px;
+  }
+
+  .expandButton {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--primary-text-color) !important;
+    font-size: 1rem;
+    width: 100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease-in, filter 0.3s ease-in;
+  }
+
+  .expandButton:hover {
+    transform: scale(1.1);
+    filter: invert(0.2);
   }
 
   /* CONTACT SIDA INNEHÅLL */
@@ -1081,8 +1141,9 @@
   }
 
   .textContainer {
-    margin-top: 50px;
-    width: 400px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 450px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -1097,6 +1158,7 @@
 
   .textContainer img {
     width: 30px;
+    margin-right: 5px;
   }
 
   .textContainer a {

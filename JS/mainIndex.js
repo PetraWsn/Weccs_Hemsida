@@ -192,26 +192,101 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollLock.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     }
   });
-});
 
-// Definiera media queryn
-const mediaQuery = window.matchMedia("(max-width: 1050px)");
+  // Definiera media querys för olika storlekar och orientering
+  const mediaQueryLarge = window.matchMedia("(min-width: 1050px)"); // För stora skärmar
+  const mediaQueryTabletPortrait = window.matchMedia(
+    "(max-width: 1049px) and (min-width: 767px) and (orientation: portrait)"
+  ); // För tablet i porträttläge
+  const mediaQueryTabletLandscape = window.matchMedia(
+    "(max-width: 1049px) and (min-width: 767px) and (orientation: landscape)"
+  ); // För tablet i landskapsläge
+  const mediaQueryMobile = window.matchMedia("(max-width: 766px)"); // För mobil
 
-// Funktion för att byta ut bilden beroende på media query
-function changeImageBasedOnMediaQuery(e) {
-  const image = document.getElementById("imgLock");
+  // Funktion för att byta ut bilden beroende på skärmstorlek och orientering
+  function changeImageBasedOnMediaQuery() {
+    const image = document.getElementById("sticky");
 
-  if (e.matches) {
-    // Om skärmen är mindre än 768px, använd mobilbilden
-    image.src = "./assets/sticky_scrollTablet.svg";
-  } else {
-    // Om skärmen är större än 768px, använd storbilden
-    image.src = "./assets/sticky_scroll.svg";
+    if (mediaQueryLarge.matches) {
+      // Om skärmen är större än 1050px, använd storbilden
+      image.style.backgroundImage = "url('./assets/sticky_scroll.svg')";
+    } else if (mediaQueryTabletPortrait.matches) {
+      // Om skärmen är mellan 768px och 1050px i porträttläge, använd tabletbilden för porträttläge
+      image.style.backgroundImage =
+        "url('./assets/sticky_scrollTabletPortrait.svg')";
+    } else if (mediaQueryTabletLandscape.matches) {
+      // Om skärmen är mellan 768px och 1050px i landskapsläge, använd tabletbilden för landskapsläge
+      image.style.backgroundImage =
+        "url('./assets/sticky_scrollTabletLandscape.svg')";
+    } else if (mediaQueryMobile.matches) {
+      // Om skärmen är mindre än 768px, använd mobilbilden
+      image.style.backgroundImage = "url('./assets/sticky_scrollMobile.svg')";
+    }
   }
-}
 
-// Lägg till eventlyssnare för att lyssna på förändringar i media query
-mediaQuery.addListener(changeImageBasedOnMediaQuery);
+  // Lägg till eventlyssnare för att lyssna på förändringar i media querys
+  mediaQueryLarge.addListener(changeImageBasedOnMediaQuery);
+  mediaQueryTabletPortrait.addListener(changeImageBasedOnMediaQuery);
+  mediaQueryTabletLandscape.addListener(changeImageBasedOnMediaQuery);
+  mediaQueryMobile.addListener(changeImageBasedOnMediaQuery);
 
-// Anropa funktionen vid första laddning för att sätta rätt bild
-changeImageBasedOnMediaQuery(mediaQuery);
+  // Anropa funktionen vid första laddning för att sätta rätt bild
+  changeImageBasedOnMediaQuery();
+
+  function changeContentOnScroll(entries, observer) {
+    if (!window.matchMedia("(min-width: 767px)").matches) {
+      return; // Om skärmens bredd är mindre än 1050px, gör ingenting
+    }
+
+    entries.forEach((entry) => {
+      const scrollLock = document.getElementById("scrollLock");
+      const caseImgLock = document.getElementById("caseImgLock");
+
+      // Kolla om elementet är synligt
+      if (entry.isIntersecting) {
+        // Byt bakgrundsfärg på scrollLock baserat på den synliga scrollText
+        if (entry.target.id === "scrollText1") {
+          scrollLock.style.backgroundColor = "rgb(227, 160, 25)";
+          // Vänta tills bilden byts och gör den synlig igen
+          setTimeout(() => {
+            caseImgLock.src = "./assets/example1.jpg"; // Ändra till rätt bild för den här texten
+            caseImgLock.style.opacity = 1; // Gör bilden synlig
+          }, 500); // 1000 ms för att synka med transitionens varaktighet
+        } else if (entry.target.id === "scrollText2") {
+          scrollLock.style.backgroundColor = "rgb(255, 79, 97)";
+          caseImgLock.style.opacity = 0.5;
+          setTimeout(() => {
+            caseImgLock.src = "./assets/example2.jpg"; // Ändra till rätt bild för den här texten
+            caseImgLock.style.opacity = 1;
+          }, 500);
+        } else if (entry.target.id === "scrollText3") {
+          scrollLock.style.backgroundColor = "lightcoral";
+          caseImgLock.style.opacity = 0.5;
+          setTimeout(() => {
+            caseImgLock.src = "./assets/example3.jpg"; // Ändra till rätt bild för den här texten
+            caseImgLock.style.opacity = 1;
+          }, 500);
+        } else if (entry.target.id === "scrollText4") {
+          scrollLock.style.backgroundColor = "rgb(92, 31, 215)";
+          caseImgLock.style.opacity = 0.5;
+          setTimeout(() => {
+            caseImgLock.src = "./assets/example4.jpg"; // Ändra till rätt bild för den här texten
+            caseImgLock.style.opacity = 1;
+          }, 500);
+        }
+      }
+    });
+  }
+
+  // Skapa en IntersectionObserver för att observera scrollText-elementen
+  const observer = new IntersectionObserver(changeContentOnScroll, {
+    threshold: 0.5, // 50% av elementet måste vara synligt för att observeras
+  });
+
+  // Hämta alla scrollText-element och observera dem
+  const scrollTexts = document.querySelectorAll(".scrollText");
+  scrollTexts.forEach((scrollText, index) => {
+    scrollText.id = `scrollText${index + 1}`; // Ge varje scrollText ett unikt id
+    observer.observe(scrollText);
+  });
+});
