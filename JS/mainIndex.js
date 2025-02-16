@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Skapa en IntersectionObserver för att observera scrollText-elementen
   const observer = new IntersectionObserver(changeContentOnScroll, {
-    threshold: 0.5, // 50% av elementet måste vara synligt för att observeras
+    threshold: 0.4, // 50% av elementet måste vara synligt för att observeras
   });
 
   // Hämta alla scrollText-element och observera dem

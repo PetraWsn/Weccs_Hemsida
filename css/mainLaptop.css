@@ -616,7 +616,7 @@
     top: 50%;
     left: 50%;
     transform-origin: center;
-    transform: translate(-50%, -50%) translate(-35vw, 0%) rotate(180deg);
+    transform: translate(-50%, -50%) translate(-38vw, 0%) rotate(180deg);
   }
 
   #caseImgLock,
@@ -630,7 +630,7 @@
     left: 50%;
     opacity: 1;
     border-radius: 15px;
-    transform: translate(-50%, -50%) translate(-12vw, 0px);
+    transform: translate(-50%, -50%) translate(-13vw, 0px);
     transition: opacity 0.5s ease-in;
   }
 
@@ -663,6 +663,7 @@
   .scrollText h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    color: var(--secondary-text-color2);
   }
 
   .scrollText a {
@@ -942,7 +943,6 @@
     flex-direction: column;
     overflow: hidden;
     align-self: flex-start;
-    max-height: 90%;
   }
 
   .ServiceColumnL {

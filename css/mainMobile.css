@@ -4,7 +4,7 @@
     --background-color2: rgb(218, 93, 93);
     --primary-text-color: rgb(235, 235, 235); /* Primär Textfärg */
     --secondary-text-color1: rgb(255, 242, 97); /* Hover-länkar */
-    --secondary-text-color2: rgb(253, 238, 166);
+    --secondary-text-color2: rgb(255, 245, 196);
     font-size: 14px;
   }
 
@@ -601,7 +601,7 @@
   .mobileImg {
     width: 100%;
     margin-bottom: 10px;
-    border-radius: 15px;
+    border-radius: 8px;
   }
 
   #caseImgLock {
@@ -610,7 +610,7 @@
     position: absolute;
     left: 17%;
     top: 43%;
-    border-radius: 15px;
+    border-radius: 10px;
     align-self: center;
     display: none;
   }
@@ -620,7 +620,7 @@
     position: relative;
     top: 0px;
     left: 9%;
-    padding-top: 31vh;
+    padding-top: 25vh;
   }
 
   .scrollText {
@@ -628,7 +628,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
   }
 
   #secondInfo > .scrollText:nth-child(1) {
@@ -654,6 +654,7 @@
   .scrollText h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    color: var(--secondary-text-color2);
   }
 
   .scrollText a {
@@ -776,9 +777,23 @@
   /*   PORTFOLIO SIDA INNEHÅLL */
 
   #contentPortfolio {
+    width: 100%;
     background-color: var(--background-color);
-    height: 110%;
-    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #infoContainerP {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
   }
 
   .headerPortfolio {
@@ -807,6 +822,22 @@
     margin-top: 60px;
   }
 
+  .portfolioCaseLeft > .caseBoxL:nth-of-type(1) {
+    background-color: rgb(227, 160, 25);
+  }
+
+  .portfolioCaseLeft > .caseBoxL:nth-of-type(2) {
+    background-color: rgb(92, 31, 215);
+  }
+
+  .portfolioCaseRight > .caseBoxR:nth-of-type(1) {
+    background-color: rgb(255, 79, 97);
+  }
+
+  .portfolioCaseRight > .caseBoxR:nth-of-type(2) {
+    background-color: lightcoral;
+  }
+
   .portfolioCaseRight {
     width: 100%;
     display: flex;
@@ -829,39 +860,41 @@
   }
 
   .caseBoxL {
-    background-color: var(--background-color2);
-    border-radius: 15px;
-    max-height: 500px;
+    border-radius: 10px;
+    max-height: 700px;
     width: 80%;
     margin-top: 3%;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: max-height 1s ease-in;
+    box-sizing: border-box;
+    padding: 20px;
   }
 
   .caseBoxL.expanded {
-    max-height: 2000px; /* En högre max-höjd, eller tillräcklig för att visa allt innehåll */
+    max-height: 5000px; /* En högre max-höjd, eller tillräcklig för att visa allt innehåll */
   }
 
   .caseBoxR {
-    background-color: var(--background-color2);
-    border-radius: 15px;
-    max-height: 500px;
+    border-radius: 10px;
+    max-height: 700px;
     width: 80%;
     margin-top: 3%;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: max-height 1s ease-in;
+    box-sizing: border-box;
+    padding: 20px;
   }
 
   .caseBoxR.expanded {
-    max-height: 2000px; /* En högre max-höjd, eller tillräcklig för att visa allt innehåll */
+    max-height: 5000px; /* En högre max-höjd, eller tillräcklig för att visa allt innehåll */
   }
 
   .expandButtonR {
@@ -900,31 +933,25 @@
     width: 20px;
   }
 
-  .caseBoxContentL {
+  .caseBoxContent {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     overflow: hidden;
-    max-height: 90%;
-  }
-
-  .caseBoxContentR {
-    position: relative;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    max-height: 90%;
-  }
-  .caseBoxTextContent {
-    width: 60%;
     align-self: flex-start;
   }
 
+  .ServiceColumnL,
+  .ServiceColumnR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .caseBoxImg {
-    width: 30%;
+    width: 100%;
+    max-width: 500px;
     height: auto; /* Bibehåller proportionerna */
     object-fit: contain; /* Gör att bilden behåller sina proportioner och inte sträcks */
     max-height: 100%; /* Se till att bilden inte överskrider förälderns höjd */
@@ -937,6 +964,7 @@
     font-weight: bold;
     color: var(--secondary-text-color2);
     padding: 20px;
+    margin: 5px;
   }
 
   .caseText {
@@ -944,7 +972,7 @@
     font-size: 1rem;
     font-weight: lighter;
     color: var(--primary-text-color);
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
   }
 
   /* TJÄNSTER SIDA INNEHÅLL */
@@ -1083,6 +1111,8 @@
 
   #contentContact {
     position: relative;
+    width: 100%;
+    margin: 0px;
   }
 
   #contactContainer {
@@ -1096,7 +1126,7 @@
 
   .group {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   #contactContainer form legend {
@@ -1122,7 +1152,7 @@
     all: unset;
     background-color: darkslateblue;
     height: 35px;
-    width: 250px;
+    width: 100%;
     margin-right: 10px;
     color: var(--primary-text-color);
     font-family: Arial, Helvetica, sans-serif;
@@ -1141,7 +1171,7 @@
   #message {
     all: unset;
     background-color: darkslateblue;
-    width: 517px;
+    width: 100%;
     border-radius: 10px;
     height: 150px;
     padding: 10px 5px 10px 5px;
@@ -1154,21 +1184,28 @@
   .textContainer {
     margin-top: 100px;
     margin-bottom: 50px;
-    width: 450px;
+    width: 100%;
     position: relative;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .textContainer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .textContainer h2 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--primary-text-color);
     letter-spacing: 0.1rem;
   }
 
   .textContainer img {
-    width: 30px;
+    width: 25px;
     margin-right: 5px;
   }
 
@@ -1178,6 +1215,15 @@
     color: var(--primary-text-color);
     text-decoration: none;
   }
+
+  .textContainer p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: var(--primary-text-color);
+    padding: 0px;
+    margin: 0px;
+  }
+
   #submit {
     all: unset;
     position: relative;
