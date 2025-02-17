@@ -823,20 +823,20 @@
     margin-top: 60px;
   }
 
-  .portfolioCaseLeft > .caseBoxL:nth-of-type(1) {
+  #caseBox1 {
     background-color: rgb(227, 160, 25);
   }
 
-  .portfolioCaseLeft > .caseBoxL:nth-of-type(2) {
-    background-color: rgb(92, 31, 215);
-  }
-
-  .portfolioCaseRight > .caseBoxR:nth-of-type(1) {
+  #caseBox2 {
     background-color: rgb(255, 79, 97);
   }
 
-  .portfolioCaseRight > .caseBoxR:nth-of-type(2) {
+  #caseBox3 {
     background-color: lightcoral;
+  }
+
+  #caseBox4 {
+    background-color: rgb(92, 31, 215);
   }
 
   .portfolioCaseRight {
@@ -1007,50 +1007,58 @@
     font-size: 3.5rem;
   }
 
+  #serviceJustify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   main {
     position: relative;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 50px;
-    margin-top: 20px;
+    width: 70%;
+    margin-top: 40px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
   }
 
   main .serviceContainer:nth-child(1) {
-    background-color: var(--background-color2);
+    background-color: rgb(227, 160, 25);
   }
 
   main .serviceContainer:nth-child(2) {
-    background-color: rgb(177, 124, 0);
+    background-color: rgb(255, 79, 97);
   }
 
   main .serviceContainer:nth-child(3) {
-    background-color: rgb(94, 16, 167);
+    background-color: rgb(92, 31, 215);
   }
 
   .serviceContainer {
     position: relative;
     min-width: 300px;
-    height: 550px;
-    min-height: 550px;
+    max-width: 500px;
+    height: 580px;
+    min-height: 580px;
     flex: 1 1 30%;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-bottom: 80px;
-    transition: transform 0.3s ease, filter 0.3s ease, width 0.5s ease;
+    transition: transform 0.5s ease, filter 0.5s ease, width 0.5s ease;
     order: 1;
   }
 
   .serviceContainer.expanded {
     flex: 1 1 100%;
     order: 0;
+    max-width: none;
     height: auto;
     position: relative;
     top: 0;
     left: 0;
     z-index: 10;
+    transform: scale(1.1);
+    margin-top: 25px;
   }
 
   .serviceContainer.expanded .serviceColumnContainer {
@@ -1064,14 +1072,22 @@
   }
 
   .serviceContainer:hover {
-    transform: scale(1.02);
-    filter: brightness(1.1);
+    transform: scale(1.01);
+    filter: brightness(1.2);
     cursor: pointer;
+  }
+
+  .serviceContainer.expanded:hover {
+    transform: scale(1.1);
+    filter: brightness(1);
+    margin-top: 25px;
   }
 
   .serviceInfo {
     width: 100%;
     height: 100%;
+    padding-bottom: 20px;
+    box-sizing: border-box;
     overflow: hidden;
   }
 
@@ -1079,12 +1095,13 @@
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
-    color: var(--primary-text-color);
-    padding-left: 5%;
+    color: var(--secondary-text-color2);
+    padding-left: 20px;
+    box-sizing: border-box;
   }
 
   .serviceColumn {
-    padding: 0% 5% 5% 5%;
+    padding: 0px 20px 10px 20px;
   }
 
   .serviceColumn p {
@@ -1094,7 +1111,7 @@
   }
 
   .serviceColumn img {
-    width: 90%;
+    width: 100%;
     border-radius: 10px;
   }
 
@@ -1111,6 +1128,13 @@
   }
 
   /* CONTACT SIDA INNEHÅLL */
+
+  #contentContact {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
   #contactContainer {
     width: 100%;
