@@ -34,7 +34,7 @@
     position: relative;
     background-position: bottom; /* Gör så att bilden utgår från botten och ej toppen */
     background-attachment: fixed; /* Förhindrar skalning */
-    background-image: url("./assets/Startsida.jpg");
+    background-image: url("../assets/startsida.jpg");
     background-repeat: no-repeat;
     background-size: cover; /* Ser till att bildens proportioner bibehålls och fyller hela fönstret */
     animation: fadeOut 4s ease-out forwards; /* Animationen */
