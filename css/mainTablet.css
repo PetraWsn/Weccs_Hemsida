@@ -613,9 +613,10 @@
     top: 15%;
   }
 
-  #caseImgLock {
+  #caseImgLock,
+  #nextImgLock {
     width: 35%;
-    min-width: 200px;
+    min-width: 290px;
     max-width: 300px;
     height: auto;
     position: absolute;
